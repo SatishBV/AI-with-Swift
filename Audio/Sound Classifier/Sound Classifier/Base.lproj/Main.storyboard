@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ccv-bV-Kfk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sound classifier-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sound_Classifier" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMe-XF-lwH" customClass="ThreeStateButton" customModule="Sound_Classifier" customModuleProvider="target">
+                                <rect key="frame" x="16" y="778" width="382" height="60"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Gym-6L-0Sz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Record sound">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CDV-eM-Fk6"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iQe-UZ-DyV">
+                                <rect key="frame" x="87" y="766" width="240" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="a61-Yh-4kO"/>
+                                </constraints>
+                            </progressView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2e9-O0-oMh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PMB-O8-hrX">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnimalCollectionViewCell" id="pZC-Nc-TnV" userLabel="AnimalCollectionViewCell" customClass="AnimalCell" customModule="Sound_Classifier" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ofR-fq-qvN">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmU-JP-6dr">
+                                                    <rect key="frame" x="43" y="53.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.40784313729999999" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="MmU-JP-6dr" firstAttribute="centerX" secondItem="ofR-fq-qvN" secondAttribute="centerX" id="UL7-E9-z3V"/>
+                                                <constraint firstItem="MmU-JP-6dr" firstAttribute="centerY" secondItem="ofR-fq-qvN" secondAttribute="centerY" id="unZ-CE-6U1"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellView" destination="ofR-fq-qvN" id="7Ns-F0-Fxi"/>
+                                            <outlet property="textLabel" destination="MmU-JP-6dr" id="dUC-Nl-szt"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="x09-lt-34h"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BB3-8k-OJG"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tMe-XF-lwH" secondAttribute="bottom" constant="24" id="7iI-YR-mi6"/>
+                            <constraint firstItem="iQe-UZ-DyV" firstAttribute="top" secondItem="2e9-O0-oMh" secondAttribute="bottom" constant="8" id="C5y-hy-QHd"/>
+                            <constraint firstItem="tMe-XF-lwH" firstAttribute="top" secondItem="iQe-UZ-DyV" secondAttribute="bottom" constant="8" id="MCJ-Z0-tAu"/>
+                            <constraint firstItem="iQe-UZ-DyV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oo7-20-CyF"/>
+                            <constraint firstItem="tMe-XF-lwH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YrW-LY-VhB"/>
+                            <constraint firstItem="2e9-O0-oMh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nKf-Mr-V2r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2e9-O0-oMh" secondAttribute="trailing" id="sBS-AS-idL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tMe-XF-lwH" secondAttribute="trailing" constant="16" id="yx3-M6-b4N"/>
+                            <constraint firstItem="2e9-O0-oMh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zDQ-iL-8J9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sound classifier" id="2sU-mc-XQS"/>
+                    <connections>
+                        <outlet property="collectionView" destination="2e9-O0-oMh" id="9R7-TO-Uaw"/>
+                        <outlet property="progressBar" destination="iQe-UZ-DyV" id="PDX-1k-XH5"/>
+                        <outlet property="recordButton" destination="tMe-XF-lwH" id="i8v-FF-W9n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942.02898550724649" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Px1-IU-UyF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ccv-bV-Kfk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dS0-II-43h">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rJQ-j8-IBl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Job-iU-Aoz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31.884057971014496" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
